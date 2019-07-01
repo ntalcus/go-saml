@@ -90,7 +90,11 @@ func verify(xml string, publicCertPath string, id string) error {
 
 	//fmt.Println("xmlsec1", "--verify", "--pubkey-cert-pem", publicCertPath, "--id-attr:ID", id, samlXmlsecInput.Name())
 	bigCMD := exec.Command("xmlsec1", "--verify", "--pubkey-cert-pem", publicCertPath, "--id-attr:ID", id, samlXmlsecInput.Name())
-	println(bigCMD.Args)
+	// for argNum, argStr := range bigCMD.Args {
+	// 	// print(argNum)
+	// 	argNum = argNum
+	// 	print(argStr + " ")
+	// }
 	_, err = bigCMD.CombinedOutput()
 	if err != nil {
 		return errors.New("error verifing signature: " + err.Error())
