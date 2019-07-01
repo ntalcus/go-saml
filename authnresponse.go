@@ -46,6 +46,12 @@ func ParseEncodedResponse(b64ResponseXML string) (*Response, error) {
 	return &response, nil
 }
 
+func responseWithString(str string) *Response {
+	response := Response{}
+	response.originalString = str
+	return &response
+}
+
 func (r *Response) Validate(s *ServiceProviderSettings) error {
 	if r.Version != "2.0" {
 		return errors.New("unsupported SAML Version")
