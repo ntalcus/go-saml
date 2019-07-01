@@ -46,7 +46,7 @@ func ParseEncodedResponse(b64ResponseXML string) (*Response, error) {
 	return &response, nil
 }
 
-func responseWithString(str string) *Response {
+func ResponseWithString(str string) *Response {
 	response := Response{}
 	response.originalString = str
 	return &response
